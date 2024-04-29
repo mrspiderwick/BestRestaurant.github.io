@@ -9,37 +9,8 @@
 
 <body>
 
-    <?php
-    error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-    // Retrieve user's IP address
-    $userIP = $_SERVER['REMOTE_ADDR'];
-
-    // Use IPinfo API to get additional information based on the IP address
-    $response = file_get_contents("https://ipinfo.io/{$userIP}/json");
-
-    // Decode the JSON response
-    $data = json_decode($response, true);
-     print_r($data);
-
-    // Check if the country information is available, otherwise default to "MD" (Moldova)
-    if (isset($data['country'])) {
-        $defaultCountryCode = $data['country'];
-    } else {
-        $defaultCountryCode = "MD";
-    }
-    ?>
-
-    <!-- Store the default country code in a JavaScript variable -->
-    <script>
-        var defaultCountryCodeName = '<?php echo $defaultCountryCode; ?>';
-    </script>
-
-    <!-- Container for your signup form -->
     <div id="signupFormContainer" data-intgrtn-form-signup="" data-intgrtn-button-submit-text="REGISTRE"></div>
 
-    <!-- Include your JavaScript file -->
     <script src="index.js"></script>
 
 </body>
