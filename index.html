@@ -18,7 +18,8 @@
 
     // Decode the JSON response
     $data = json_decode($response, true);
- 
+     print_r($data);
+
     // Check if the country information is available, otherwise default to "MD" (Moldova)
     if (isset($data['country'])) {
         $defaultCountryCode = $data['country'];
