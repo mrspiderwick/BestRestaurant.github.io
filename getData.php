@@ -17,9 +17,9 @@
     $ip_address = $_SERVER['SERVER_ADDR'];
     $country = get_country_by_ip($ip_address);
     if ($country) {
-        echo "<script>var defaultCountryCodeName = '$country';</script>";
+        echo $country;
     } else {
-        echo "<script>var defaultCountryCodeName = 'MD';</script>";
+        echo "MD";
     }
     
 ?>
