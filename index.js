@@ -1,5 +1,27 @@
 // script.js
+var defaultCountryCodeName; // Declare the variable
 
+        // Function to make an AJAX request
+        function fetchData() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'getData.php', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Save the data received from PHP to the variable
+                        defaultCountryCodeName = xhr.responseText;
+                        console.log('Default country code:', defaultCountryCodeName);
+                    } else {
+                        console.error('Error:', xhr.status);
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        fetchData();
+
+        
 document.addEventListener("DOMContentLoaded", function() {
     // Get reference to the div container
     var signupFormContainer = document.getElementById("signupFormContainer");
